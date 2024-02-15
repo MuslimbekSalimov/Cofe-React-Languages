@@ -1,0 +1,40 @@
+.hero .container {
+  width: 1280px;
+  height: 450px;
+  background-image: url("../img/cofeherobg.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.hero {
+  margin-top: 45px;
+
+  &__info {
+    padding-top: 137px;
+    margin-left: 85px;
+    width: 445px;
+  }
+
+  &__heading {
+    font-family: "Fraunces";
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 48px;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 24px;
+  }
+
+  &__text {
+    font-family: 'Barlow' serif;
+    font-size: 16px;
+    font-weight: 100;
+    font-style: normal;
+    line-height: 26px;
+    margin: 0;
+    padding: 0;
+    color: #FEFCF7;
+    opacity: 0.8;
+  }
+}

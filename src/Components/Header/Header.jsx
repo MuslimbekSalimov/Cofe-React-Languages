@@ -1,52 +1,75 @@
+import "./Header.scss"
+import HomeLogo from "../img/HomeLogo.png";
+import Logo from "../img/logo.png";
+import Menu from "../img/Menu.png";
 import React from "react";
-import CofeLogo from "../img/Cofe-logo.svg";
-import "./Header.scss";
-import Languages from "../Localization/Loacalization";
 
-function Header({lang, setlang}) {
-  // const xRef = React.useState()
+function Header() {
+    const xref = React.useRef()
+    return (
+        <>
+        <header className="header">
+            <div className="container">
+                <div className="header__info">
+                  <a className="header__link" href="#Logo">
+                    <img src={HomeLogo} alt="HomeLogo"  width={31} height={31}/>
+                    <img src={Logo} alt="Logo" width={91} height={30}/>
+                  </a>
 
-  return (
-    <>
-      <header className="header">
-        <div className="container">
-          <a className="header__link" href="#link">
-            <img
-              className="header__logo"
-              src={CofeLogo}
-              alt="cofe logo"
-              width="237"
-              height="27"
-            />
-          </a>
+                 <ul className="list">
+                    <li className="item">
+                        <a className="link" href="#About">About</a>
+                    </li>
 
-          <select value={lang} className="select" 
-              onChange={(hi) =>
-               setlang(hi.target.value)}>
-                <option value="uz">UZ</option>
-                <option value="en">EN</option>
-                <option value="ru">RU</option>
-          </select>
+                    <li className="item">
+                        <a className="link" href="#About">Blog</a>
+                    </li>
 
-          <nav className="nav">
-            <ul className="nav__list">
-              <li className="nav__item">
-                <a className="nav__link" href="#link">{Languages[lang].header.nav.nav__link}</a>
-              </li>
+                    <li className="item">
+                        <a className="link" href="#About">Agency</a>
+                    </li>
 
-              <li className="nav__item">
-                <a className="nav__link" href="#link">{Languages[lang].header.nav.nav__link1}</a>
-              </li>
+                    <li className="item">
+                        <a className="link" href="#About">Featured</a>
+                    </li>
 
-              <li className="nav__item">
-                <a className="nav__link" href="#link">{Languages[lang].header.nav.nav__link2}</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
-    </>
-  );
+                    <li className="item">
+                        <a className="link" href="#About">Price</a>
+                    </li>
+                 </ul>
+
+                 <picture>
+                    <img ref={xref} onClick={() => {
+                        xref.current.classList.add("block")
+                    }} src={Menu} alt="Menu"/>
+                 </picture>
+
+
+                 <div
+                     onClick={(evt) => {
+                        if (evt.target.matches(".modal")) {
+                            xref.current.classList.remove("block")
+                        }
+                    }}
+                    className="modal" ref={xref}>
+                    <div className="modal__div">
+                        <h3 className="modal__heading">Pravisy Polisy</h3>
+                        <button ref={xref} onClick={() => {
+                            xref.current.classList.remove("block")
+                        }} className="modal__button">X</button>
+                        <p className="modal__text"> Hi, I’m Muslimbek <br/><br/>
+                            👀 I’m interested in ...Enginer<br/><br/>
+                            🌱 I’m currently learning ...Frontend<br/><br/>
+                            💞️ I’m looking to collaborate on ...TenX<br/><br/>
+                            📫 How to reach me ...@muslimbeksalimov0102@gmail.com</p>
+                    </div>
+                 </div>
+                 
+                 </div>
+            </div>
+        </header>
+        </>
+    )
 }
 
 export default Header;
